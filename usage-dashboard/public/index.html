@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Usage Survey</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <!-- top bar -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">
+                <span class="brand-mark">AI Usage Survey</span>
+                <span class="brand-sub">team view — load a group's CSV to explore</span>
+            </div>
+            <div class="loader">
+                <label class="btn-primary" for="file-input">Load CSV</label>
+                <input id="file-input" type="file" accept=".csv" hidden />
+                <span id="file-name" class="file-name"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- drop zone (collapses once data loads) -->
+    <div id="dropzone-wrap" class="dropzone-wrap">
+        <div id="dropzone" class="dropzone">
+            <p class="dz-title">Drop a survey CSV here</p>
+            <p class="dz-sub">or use "Load CSV" above &middot; parsed in your browser, nothing uploaded</p>
+            <p class="dz-sample"><a href="#" id="load-sample" class="link-muted">Load sample data to preview</a></p>
+            <p id="load-error" class="load-error" hidden></p>
+        </div>
+    </div>
+
+    <!-- dashboard (hidden until CSV loads) -->
+    <main id="dashboard" class="dashboard" hidden>
+
+        <!-- filter (heading section, like At a glance) -->
+        <section class="section" id="filter">
+            <h2 class="section-title">Filter</h2>
+            <div id="filterbar" class="filterbar"></div>
+        </section>
+
+        <!-- at-a-glance strip -->
+        <section class="section" id="summary">
+            <h2 class="section-title">At a glance</h2>
+            <div id="summary-strip" class="summary-strip"></div>
+        </section>
+
+        <!-- survey results: AI summary of the quantitative answers -->
+        <section class="section card" id="survey-findings">
+            <h2 class="section-title">Survey results — key findings
+                <span class="section-sub">what the numbers say</span>
+            </h2>
+            <div id="survey-findings-host"></div>
+        </section>
+
+        <!-- topic cards (one per category) -->
+        <section class="section" id="topics">
+            <h2 class="section-title">By topic — click any row to expand</h2>
+            <div id="topics-host"></div>
+        </section>
+
+        <!-- open text -->
+        <section class="section card" id="opentext">
+            <h2 class="section-title">What they wrote
+                <span class="section-sub">biggest blockers &amp; most-valued workflows</span>
+            </h2>
+            <div id="opentext-host"></div>
+        </section>
+
+        <footer class="page-footer">
+            Color = answer (red = not yet &rarr; green = fully adopted) &middot;
+            Hover any bar for the exact count &middot;
+            Single-group view — no cross-group comparison
+        </footer>
+    </main>
+
+    <script src="vendor/papaparse.min.js"></script>
+    <script src="vendor/echarts.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/score.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

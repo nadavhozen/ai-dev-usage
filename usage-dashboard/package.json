@@ -1,0 +1,9 @@
+{
+    "name": "ai-usage-dashboard",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Developer AI-usage survey maturity dashboard (judgment over adoption). Zero-dependency Node static server + client-side CSV.",
+    "scripts": {
+        "start": "node server.js"
+    }
+}
