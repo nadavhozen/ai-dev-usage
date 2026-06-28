@@ -3,13 +3,47 @@
 Measure how a development team actually uses AI coding tools — adoption *and*
 judgment — and read the results at a glance.
 
-Two pieces:
+## Contents
 
-1. **`ai_dev_usage_survey.gs`** — a Google Apps Script that generates the survey
-   as a Google Form (35 questions across 7 sections).
-2. **`usage-dashboard/`** — a clean, white, zero-dependency dashboard. Feed it
-   the form's CSV export and it gives a manager a per-topic, color-coded read
-   out: plain language, no jargon, no composite score.
+- [Overview](#overview)
+- [1. Create the survey form (Google Apps Script)](#1-create-the-survey-form-google-apps-script)
+- [2. Collect responses, then export to CSV](#2-collect-responses-then-export-to-csv)
+- [3. Run the dashboard](#3-run-the-dashboard)
+- [What you see](#what-you-see)
+- [AI analysis (optional)](#ai-analysis-optional)
+- [How the form maps to the dashboard](#how-the-form-maps-to-the-dashboard)
+- [What's where](#whats-where)
+
+## Overview
+
+**The goal:** give a manager an honest, actionable picture of how their team
+uses AI coding tools — not just *how much*, but *how well*. Most "AI adoption"
+metrics stop at usage counts; this measures the harder thing — deliberate tool
+choice, output review, repeatable workflows, and shared standards — so a team
+with high usage but weak verification stands out instead of hiding behind a
+green number.
+
+**Why it's useful:**
+
+- **Adoption *and* judgment** — 35 questions across 7 sections cover reach
+  (how much AI is used) *and* rigor (how carefully), surfacing real gaps.
+- **Manager-first read-out** — per-topic, color-coded bars (red = not doing it
+  → green = fully adopted); plain language, no jargon, no composite score.
+- **Profile cross-cuts** — filter by role, seniority, experience, and AI tenure
+  to see where one group behaves differently (slices under 5 people are hidden).
+- **Private by default** — the CSV is parsed in your browser; the only optional
+  outbound call is the AI summary, which runs through Gong's own AWS Bedrock.
+
+**How it works — three steps:**
+
+1. **Create & publish** — run `ai_dev_usage_survey.gs` in Google Apps Script to
+   generate the form, then share its link with your team.
+   → [step 1](#1-create-the-survey-form-google-apps-script)
+2. **Collect & export** — once responses are in, download them as a CSV from the
+   linked Google Sheet. → [step 2](#2-collect-responses-then-export-to-csv)
+3. **Load & analyze** — start the dashboard, load the CSV, and read the
+   per-topic results (optionally summarized by AI).
+   → [step 3](#3-run-the-dashboard)
 
 ```
 ai-dev-usage/
